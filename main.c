@@ -6,15 +6,18 @@
 int main(void) {
 	
 	FILE*fp = NULL;
-	char c;
+//	char c;
+	char str[100];
 	
 	fp=fopen("sample.txt","r");
 
 	if(fp == NULL)
 		printf("파일을 못열음\n");
 
-	while((c=fgetc(fp)) != EOF){
-		printf("%c",c);
+//	while((c=fgetc(fp)) != EOF){
+	while (fgets(str,100,fp) != NULL){
+		printf("%s",str);
+//		printf("%c",c);
 //		putchar(c);
 	}
 	
