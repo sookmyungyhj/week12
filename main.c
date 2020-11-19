@@ -5,21 +5,34 @@
 
 int main(void) {
 	
-	FILE*fp = NULL;
-//	char c;
+	FILE*fp;
 	char str[100];
+	char filename[100];
+	char search[100];
+	int i;
 	
-	fp=fopen("sample.txt","r");
+	printf("original file name :");
+	scanf("%s", filename);
+	printf("word to find :");
+	scanf("%s", search);
+	
+	printf("find a word %s \n",search);
+	
+	fp=fopen(filename,"r");
 
 	if(fp == NULL)
-		printf("파일을 못열음\n");
+		printf("파일을 못 열음\n");
 
-//	while((c=fgetc(fp)) != EOF){
 	while (fgets(str,100,fp) != NULL){
-		printf("%s",str);
-//		printf("%c",c);
-//		putchar(c);
+		//strncmp
+		if(strncmp(str, search, strlen(search)) == 0){
+			printf("Search done!");
+			fclose(fp);
+			return 0;
+			}
 	}
 	
+	printf("Search failed!\n");
 	fclose(fp);
+	return 0;
 }
