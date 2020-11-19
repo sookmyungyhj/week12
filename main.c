@@ -3,12 +3,18 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(void) {
-	char code1 = 'A';
-	int code2 = 65;
+int main(int argc, char *argv[]) {
 	
-	printf("code1 = %c (%d)\n", code1, code1);
-	printf("code2 = %c (%d)\n", code2, code2);
+	char src[] = "The worst things to eat before you sleep";
+	char dst[100];
+	
+	char str[30] = "happy c programming"; 
+
+	strcpy(dst, src);
+
+	printf("%s\n",dst);
+
+	printf("length of \%s\ : %i\n", str, strlen(str) );
 
 	return 0;
 }
